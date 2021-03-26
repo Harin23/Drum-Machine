@@ -3,10 +3,29 @@ class App extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
     }
-
+    componentWillMount(){
+        addEventListener("keypress", (e)=>{
+            let button = document.getElementById(e.key.toUpperCase());
+            button.style.backgroundColor = "red";
+            let sound = button.childNodes[1];
+            sound.pause();
+            sound.currentTime = 0;
+            sound.play();
+            setTimeout(() => {
+                button.style.backgroundColor = "gray";
+            }, Math.floor(sound.duration)*1000);
+        })
+    }
     handleClick(e){
-        let sound = e.target.childNodes[1];
+        let button = e.target;
+        button.style.backgroundColor = "red";
+        let sound = button.childNodes[1];
+        sound.pause();
+        sound.currentTime = 0;
         sound.play();
+        setTimeout(() => {
+            button.style.backgroundColor = "gray";
+        }, Math.floor(sound.duration)*1000);
     }
     render(){
         return(
@@ -55,7 +74,7 @@ class App extends React.Component{
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
         )
     }
 }
