@@ -34,7 +34,6 @@ class App extends React.Component{
     render(){
         return(
             <div className="container" id="drum-machine">
-                <div className="container" id="display"></div>
                 <div className="container p-3 bg-dark border border-secondary rounded">
                     <div className="row">
                         <div className="col">
@@ -49,6 +48,7 @@ class App extends React.Component{
                             <button className="drum-pad btn border border-dark rounded w-100 m-1" 
                             id="E" onClick={this.handleClick}>E<audio className="clip" id="E" src="./Damn-Son.mp3"></audio></button>
                         </div>
+                        <div className="col"></div>
                     </div>
                     <div className="row">
                         <div className="col">
@@ -62,6 +62,9 @@ class App extends React.Component{
                         <div className="col">
                             <button className="drum-pad btn border border-dark rounded w-100 m-1" 
                             id="D" onClick={this.handleClick}>D<audio className="clip" id="D" src="./Damn-Son.mp3"></audio></button>
+                        </div>
+                        <div className="col">
+                        <div className="container bg-info" id="display">Q</div>
                         </div>
                     </div>
                     <div className="row">
@@ -77,6 +80,7 @@ class App extends React.Component{
                             <button className="drum-pad btn border border-dark rounded w-100 m-1" 
                             id="C" onClick={this.handleClick}>C<audio className="clip" id="C" src="./Damn-Son.mp3"></audio></button>
                         </div>
+                        <div className="col"></div>
                     </div>
                 </div>
             </div>

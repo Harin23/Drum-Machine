@@ -11,3 +11,11 @@ background-color: gray;
 font-weight: 800;
 font-size: xx-large;
 }
+#display{
+    background-color: gray;
+    width: 100px;
+    height: 70px;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
