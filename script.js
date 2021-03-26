@@ -1,3 +1,4 @@
+const keys = ["Q", 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']
 class App extends React.Component{
     constructor(props){
         super(props);
@@ -6,17 +7,20 @@ class App extends React.Component{
     componentWillMount(){
         addEventListener("keypress", (e)=>{
             let display = document.getElementById("display");
-            display.innerText = e.key.toUpperCase();
-            let button = document.getElementById(e.key.toUpperCase());
-            button.style.backgroundColor = "red";
-            let sound = button.childNodes[1];
-            sound.pause();
-            sound.currentTime = 0;
-            sound.play();
-            setTimeout(() => {
-                button.style.backgroundColor = "gray";
-            }, Math.floor(sound.duration)*1000);
-        })
+            let pressedKey = e.key.toUpperCase();
+            if(keys.indexOf(pressedKey) != -1){
+                display.innerText = pressedKey;
+                let button = document.getElementById(pressedKey);
+                button.style.backgroundColor = "red";
+                let sound = button.childNodes[1];
+                sound.pause();
+                sound.currentTime = 0;
+                sound.play();
+                setTimeout(() => {
+                    button.style.backgroundColor = "gray";
+                }, Math.floor(sound.duration)*1000);
+            };
+        });
     }
     handleClick(e){
         let button = e.target;
