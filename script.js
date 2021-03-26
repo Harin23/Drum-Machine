@@ -5,6 +5,8 @@ class App extends React.Component{
     }
     componentWillMount(){
         addEventListener("keypress", (e)=>{
+            let display = document.getElementById("display");
+            display.innerText = e.key.toUpperCase();
             let button = document.getElementById(e.key.toUpperCase());
             button.style.backgroundColor = "red";
             let sound = button.childNodes[1];
@@ -18,6 +20,8 @@ class App extends React.Component{
     }
     handleClick(e){
         let button = e.target;
+        let display = document.getElementById("display");
+        display.innerText = button.innerText;
         button.style.backgroundColor = "red";
         let sound = button.childNodes[1];
         sound.pause();
@@ -30,7 +34,8 @@ class App extends React.Component{
     render(){
         return(
             <div className="container" id="drum-machine">
-                <div className="container p-3 bg-dark border border-secondary rounded" id="display">
+                <div className="container" id="display"></div>
+                <div className="container p-3 bg-dark border border-secondary rounded">
                     <div className="row">
                         <div className="col">
                             <button className="drum-pad btn border border-dark rounded w-100 m-1" 
